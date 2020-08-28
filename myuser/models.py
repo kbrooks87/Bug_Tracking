@@ -3,9 +3,8 @@ from django.db import models
 
 # Create your models here.
 class MyUser(AbstractUser):
-    age = models.IntegerField(blank=True, null=True)
-    bio = models.TextField(blank=True, null=True)
+    position = models.CharField(max_length=120, blank=True, null=True)
+    REQUIRED_FIELDS = ['position']
 
     def __str__(self):
         return self.username
-    

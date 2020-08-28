@@ -16,6 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from bug_tracking import views
+
 urlpatterns = [
+    path('', views.index, name='homepage'),
+    path('login/', views.login_view, name='loginview'),
+    path('logout/', views.logout_view, name='logoutview'),
+    path('ticket/<int:id>/edit/', views.ticket_edit, name='ticketedit'),  
+    path('ticket/<int:id>/', views.ticket_detail, name='ticketdetails'),
+    path('complete/<int:id>/', views.ticket_complete, name='ticketcomplete'),
+    path('claim/<int:id>/', views.ticket_claim, name='ticketclaim'),
+    path('invalid/<int:id>/', views.ticket_invalid, name='ticketinvalid'),
+    path('ticket/submit/', views.ticket_submit, name='ticketsubmit'),
+    path('user/<str:username>/', views.users_detail, name='userdetails'),
     path('admin/', admin.site.urls),
 ]
